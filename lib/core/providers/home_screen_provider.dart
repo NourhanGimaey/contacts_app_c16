@@ -8,4 +8,13 @@ class HomeScreenProvider extends ChangeNotifier {
     contacts.removeLast();
     notifyListeners();
   }
+
+  void removeContactByIndex(int index) {
+    contacts.removeAt(index);
+    notifyListeners();
+  }
+
+  void updateHomeScreen() {
+    notifyListeners();
+  }
 }

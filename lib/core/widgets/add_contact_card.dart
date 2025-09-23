@@ -109,15 +109,7 @@ class AddContactCard extends StatelessWidget {
           SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {
-              contacts.add(
-                Contact(
-                  name: sheetProvider.nameController.text,
-                  email: sheetProvider.emailController.text,
-                  phone: sheetProvider.phoneController.text,
-                  image: sheetProvider.image,
-                ),
-              );
-              Navigator.pop(context);
+              sheetProvider.addContact(contacts, context);
               onUserAdded();
             },
             style: ElevatedButton.styleFrom(

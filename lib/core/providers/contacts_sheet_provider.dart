@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:contacts/core/models/contact_model.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -29,6 +30,18 @@ class ContactsSheetProvider extends ChangeNotifier {
       image = File(pickedImage.path);
       notifyListeners();
     }
+  }
+
+  void addContact(List<Contact> contacts, BuildContext context) {
+    contacts.add(
+      Contact(
+        name: nameController.text,
+        email: emailController.text,
+        phone: phoneController.text,
+        image: image,
+      ),
+    );
+    Navigator.pop(context);
   }
 
   @override
