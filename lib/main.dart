@@ -1,6 +1,8 @@
+import 'package:contacts/core/providers/home_screen_provider.dart';
 import 'package:contacts/core/utils/app_colors.dart';
 import 'package:contacts/screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const ContactsApp());
@@ -18,7 +20,11 @@ class ContactsApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.darkBlue,
         appBarTheme: AppBarTheme(backgroundColor: AppColors.darkBlue),
       ),
-      home: const HomeScreen(),
+
+      home: ChangeNotifierProvider(
+        create: (context) => HomeScreenProvider(),
+        child: const HomeScreen(),
+      ),
     );
   }
 }

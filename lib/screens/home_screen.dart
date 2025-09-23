@@ -1,3 +1,5 @@
+import 'package:contacts/core/providers/contacts_sheet_provider.dart';
+// import 'package:contacts/core/providers/home_screen_provider.dart';
 import 'package:contacts/core/utils/app_assets.dart';
 import 'package:contacts/core/utils/app_colors.dart';
 import 'package:contacts/core/models/contact_model.dart';
@@ -5,6 +7,7 @@ import 'package:contacts/core/widgets/add_contact_card.dart';
 import 'package:contacts/core/widgets/contacts_widget.dart';
 import 'package:contacts/core/widgets/empty_contacts_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,6 +17,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  // final HomeScreenProvider homeProvider = Provider.of<HomeScreenProvider>(
+  //   context,
+  // );
   final List<Contact> contacts = [];
 
   void modalBottomSheet() {
@@ -32,11 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(
             bottom: MediaQuery.viewInsetsOf(context).bottom,
           ),
-          child: AddContactCard(
-            contacts: contacts,
-            onUserAdded: () {
-              setState(() {});
-            },
+          child: ChangeNotifierProvider(
+            create: (context) => ContactsSheetProvider(),
+            child: AddContactCard(contacts: contacts, onUserAdded: () {}),
           ),
         );
       },
