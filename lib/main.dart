@@ -18,7 +18,7 @@ class ContactsApp extends StatelessWidget {
         scaffoldBackgroundColor: AppColors.darkBlue,
         appBarTheme: AppBarTheme(backgroundColor: AppColors.darkBlue),
       ),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }
