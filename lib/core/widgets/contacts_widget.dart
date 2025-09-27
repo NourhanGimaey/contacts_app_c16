@@ -1,5 +1,5 @@
 import 'package:contacts/core/providers/home_screen_provider.dart';
-import 'package:contacts/core/utils/contact_card.dart';
+import 'package:contacts/core/widgets/contact_card.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
